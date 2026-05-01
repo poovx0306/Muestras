@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DTU - Desastre Total Ultraviolento (Propuesta de Plataforma Oficial)</title>
+    <title>DTU - Desastre Total Ultraviolento (Propuesta Oficial)</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Teko:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* === VARIABLES Y RESET === */
         :root {
             --primary: #a10000;
             --primary-bright: #ff1111;
@@ -26,15 +25,15 @@
             background-color: var(--dark);
             background-image: url('https://images.unsplash.com/photo-1596700877995-1f9a10123be8?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
-            background-attachment: fixed;
+            /* Aquí estaba el error para celulares. Lo dejamos por defecto para compu */
+            background-attachment: fixed; 
             background-position: center;
             color: var(--light);
             line-height: 1.4;
-            overflow-x: hidden; /* Evita el scroll horizontal indeseado */
+            overflow-x: hidden;
         }
 
         h1, h2, h3 { font-family: 'Teko', sans-serif; text-transform: uppercase; letter-spacing: 1.5px; }
-
         a { text-decoration: none; color: var(--light); transition: all 0.3s ease; }
         a:hover { color: var(--primary); }
 
@@ -45,7 +44,6 @@
             20%, 22%, 24%, 55% { text-shadow: none; }
         }
 
-        /* === NAVEGACIÓN === */
         header {
             background-color: #000;
             padding: 15px 5%;
@@ -58,155 +56,54 @@
             z-index: 1000;
             border-bottom: 4px solid #000;
             box-shadow: 0 5px 20px rgba(161, 0, 0, 0.4);
-            flex-wrap: wrap; /* Permite que los elementos se acomoden en pantallas pequeñas */
+            flex-wrap: wrap;
         }
 
-        .logo {
-            font-family: 'Teko', sans-serif;
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: 2px;
-            animation: flicker 4s infinite;
-        }
-
+        .logo { font-family: 'Teko', sans-serif; font-size: 32px; font-weight: 700; color: var(--primary); letter-spacing: 2px; animation: flicker 4s infinite; }
         .logo span { color: #fff; font-size: 16px; vertical-align: middle; letter-spacing: 1px; }
 
         nav ul { list-style: none; display: flex; gap: 20px; }
         nav ul li a { font-weight: bold; font-size: 15px; letter-spacing: 1px; }
 
         .btn-header {
-            background-color: #000;
-            color: var(--primary-bright);
-            padding: 8px 15px;
-            font-family: 'Teko', sans-serif;
-            font-size: 16px;
-            border-radius: 0;
-            font-weight: 700;
-            border: 2px solid var(--primary-bright);
-            cursor: pointer;
-            text-shadow: 0 0 5px var(--primary-bright);
-            box-shadow: 0 0 10px var(--primary-bright);
+            background-color: #000; color: var(--primary-bright); padding: 8px 15px; font-family: 'Teko', sans-serif;
+            font-size: 16px; border-radius: 0; font-weight: 700; border: 2px solid var(--primary-bright); cursor: pointer;
+            text-shadow: 0 0 5px var(--primary-bright); box-shadow: 0 0 10px var(--primary-bright);
         }
+        .btn-header:hover { background-color: var(--primary-bright); color: #000; text-shadow: none; }
 
-        .btn-header:hover {
-            background-color: var(--primary-bright);
-            color: #000;
-            text-shadow: none;
-        }
-
-        /* === HERO SECTION === */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1)), 
-                        url('https://images.unsplash.com/photo-1541336032412-2048a678540d?q=80&w=1920&auto=format&fit=crop'); 
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 100px 20px 40px 20px; /* Espacio extra arriba para el header fijo */
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1)), url('https://images.unsplash.com/photo-1541336032412-2048a678540d?q=80&w=1920&auto=format&fit=crop'); 
+            background-size: cover; background-position: center; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center; padding: 100px 20px 40px 20px;
         }
 
-        .hero h1 {
-            font-size: 5.5rem;
-            color: #fff;
-            text-shadow: 0 0 15px var(--primary-bright);
-            margin-bottom: 10px;
-            line-height: 0.9;
-            word-wrap: break-word;
-        }
-
+        .hero h1 { font-size: 5.5rem; color: #fff; text-shadow: 0 0 15px var(--primary-bright); margin-bottom: 10px; line-height: 0.9; word-wrap: break-word; }
         .hero p { font-size: 1.6rem; margin-bottom: 40px; max-width: 700px; font-weight: bold; color: #ccc; }
 
         .btn-main {
-            background-color: #000;
-            border: 4px solid var(--primary);
-            color: var(--primary);
-            padding: 15px 40px;
-            font-family: 'Teko', sans-serif;
-            font-size: 24px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-shadow: 0 0 5px var(--primary);
-            box-shadow: 0 0 15px var(--primary);
-            width: 100%;
-            max-width: 350px; /* Limita el ancho en pantallas grandes */
+            background-color: #000; border: 4px solid var(--primary); color: var(--primary); padding: 15px 40px;
+            font-family: 'Teko', sans-serif; font-size: 24px; cursor: pointer; transition: all 0.3s ease;
+            text-shadow: 0 0 5px var(--primary); box-shadow: 0 0 15px var(--primary); width: 100%; max-width: 350px;
         }
-
         .btn-main:hover { background-color: var(--primary); color: #fff; box-shadow: 0 0 30px var(--primary); text-shadow: none; }
 
-        /* === SECCIONES GLOBALES === */
-        .section-title {
-            text-align: center;
-            font-size: 3.5rem;
-            margin-bottom: 50px;
-            color: #fff;
-            border-bottom: 6px double var(--gray);
-            display: inline-block;
-            padding-bottom: 10px;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
-            line-height: 1;
-        }
-
+        .section-title { font-size: 3.5rem; margin-bottom: 50px; color: #fff; border-bottom: 6px double var(--gray); display: inline-block; padding-bottom: 10px; text-shadow: 2px 2px 5px rgba(0,0,0,0.8); line-height: 1; }
         .container { padding: 80px 5%; text-align: center; }
 
-        /* === DESASTRE EN VIVO === */
-        .cartelera-box {
-            background-color: var(--glass);
-            border: 3px solid #000;
-            border-top: 10px solid var(--primary);
-            padding: 50px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: left;
-            box-shadow: 10px 10px 0 rgba(0,0,0,0.6);
-            gap: 30px;
-        }
-
+        .cartelera-box { background-color: var(--glass); border: 3px solid #000; border-top: 10px solid var(--primary); padding: 50px 30px; display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: 0 auto; text-align: left; box-shadow: 10px 10px 0 rgba(0,0,0,0.6); gap: 30px; }
         .cartelera-info h3 { font-size: 3rem; color: #fff; line-height: 1; margin-bottom: 10px; }
         .cartelera-info p { font-size: 1.2rem; color: #aaa; margin-top: 15px; }
         .cartelera-info i { color: var(--primary-bright); margin-right: 10px; }
 
-        .btn-massive {
-            display: inline-block;
-            background-color: #000;
-            color: var(--primary-bright);
-            border: 3px solid var(--primary-bright);
-            padding: 20px 40px;
-            font-family: 'Teko', sans-serif;
-            font-size: 26px;
-            font-weight: 700;
-            text-shadow: 0 0 5px #000;
-            box-shadow: 0 0 10px var(--primary-bright);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
+        .btn-massive { display: inline-block; background-color: #000; color: var(--primary-bright); border: 3px solid var(--primary-bright); padding: 20px 40px; font-family: 'Teko', sans-serif; font-size: 26px; font-weight: 700; text-shadow: 0 0 5px #000; box-shadow: 0 0 10px var(--primary-bright); text-align: center; transition: all 0.3s ease; }
         .btn-massive:hover { background-color: var(--primary-bright); color: #000; text-shadow: none; }
 
-        /* === GRIDS (ROSTER Y TIENDA) === */
-        .roster-grid, .tienda-grid {
-            display: grid;
-            /* El minmax a 260px evita que se desborde en celulares pequeños */
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 40px;
-        }
-
-        .card, .product {
-            background-color: var(--glass);
-            border: 3px solid #000;
-            box-shadow: 8px 8px 0 rgba(0,0,0,0.4);
-        }
-
+        .roster-grid, .tienda-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; }
+        .card, .product { background-color: var(--glass); border: 3px solid #000; box-shadow: 8px 8px 0 rgba(0,0,0,0.4); }
         .card img { width: 100%; height: 350px; object-fit: cover; filter: grayscale(100%) contrast(140%); transition: all 0.4s; }
         .card:hover img { filter: grayscale(0%) contrast(100%); transform: scale(1.05); }
-
         .card-content { padding: 20px; border-top: 3px solid var(--gray); background-color: rgba(10, 10, 10, 0.8); }
         .card-content h3 { font-size: 2.2rem; color: #fff; line-height: 1; }
         .extremo { color: var(--primary-bright); font-weight: bold; font-size: 1.1rem; }
@@ -215,39 +112,142 @@
         .product img { width: 100%; height: 280px; object-fit: cover; border: 4px solid #000; margin-bottom: 20px; }
         .product h3 { font-size: 1.8rem; color: #fff; line-height: 1.1; }
         .price { font-size: 2rem; font-weight: bold; color: var(--accent); margin: 15px 0; }
-        
         .btn-cart { width: 100%; background-color: #000; color: var(--accent); border: 3px solid var(--accent); padding: 12px; font-family: 'Teko', sans-serif; font-size: 1.3rem; cursor: pointer; }
 
-        /* === FOOTER === */
         footer { background-color: #000; padding: 50px 5%; text-align: center; border-top: 8px solid var(--gray); }
         .social-icons a { font-size: 28px; margin: 0 15px; color: #444; transition: 0.3s; }
         .social-icons a:hover { color: #fff; text-shadow: 0 0 10px var(--primary-bright); }
 
         /* =========================================================
-           MEDIA QUERIES - LA MAGIA PARA CELULARES (MOBILE FIRST)
+           MEDIA QUERIES - CELULARES (MOBILE FIRST)
            ========================================================= */
         @media (max-width: 768px) {
-            /* Header */
+            /* ¡ESTA ES LA SOLUCIÓN AL FONDO NEGRO! */
+            body { 
+                background-attachment: scroll !important; 
+            }
+
             header { padding: 10px 15px; }
             .logo { font-size: 24px; }
-            .logo span { font-size: 12px; display: block; /* Manda la palabra MEXICO abajo para ahorrar espacio */ }
-            nav ul { display: none; } /* Ocultamos el menú textual en móviles para dejar el botón limpio */
+            .logo span { font-size: 12px; display: block; }
+            nav ul { display: none; }
             .btn-header { font-size: 14px; padding: 6px 12px; }
 
-            /* Hero */
-            .hero { padding-top: 120px; }
+            .hero { padding-top: 120px; min-height: 80vh; }
             .hero h1 { font-size: 3.5rem; }
             .hero p { font-size: 1.2rem; margin-bottom: 30px; padding: 0 10px; }
             .btn-main { font-size: 20px; padding: 12px 20px; }
 
-            /* Títulos y Contenedores */
             .section-title { font-size: 2.6rem; margin-bottom: 40px; }
             .container { padding: 60px 15px; }
 
-            /* Cartelera (Desastre en vivo) */
             .cartelera-box { flex-direction: column; text-align: center; padding: 30px 15px; }
             .cartelera-info h3 { font-size: 2.4rem; }
-            .btn-massive { font-size: 20px; padding: 15px 20px; width: 100%; } /* El botón ocupa el 100% en celular */
+            .btn-massive { font-size: 20px; padding: 15px 20px; width: 100%; }
 
-            /* Reducción de tamaños en Roster y Tienda */
-            .card img { height
+            .card img { height: 300px; }
+            .product { padding: 20px 15px; }
+            .product img { height: 220px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">DTU <span>MEXICO</span></div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">INICIO</a></li>
+                <li><a href="#cartelera">DESASTRE EN VIVO</a></li>
+                <li><a href="#roster">HARDCORE ELITE</a></li>
+                <li><a href="#tienda">TIENDA SUCIA</a></li>
+            </ul>
+        </nav>
+        <a href="#cartelera" class="btn-header"><i class="fa-solid fa-fire"></i> TAQUILLA</a>
+    </header>
+
+    <section id="inicio" class="hero">
+        <h1>MEXICO ES HARDCORE</h1>
+        <p>Vive el desastre ultraviolento. Estilo de vida extremo. La arena totalmente infernal te espera.</p>
+        <button class="btn-main" onclick="document.getElementById('cartelera').scrollIntoView({behavior: 'smooth'});">
+            VER EL MAIN EVENT
+        </button>
+    </section>
+
+    <section id="cartelera" class="container">
+        <h2 class="section-title">DESASTRE EN VIVO</h2>
+        <div class="cartelera-box">
+            <div class="cartelera-info">
+                <h3>FUERA DE CONTROL</h3>
+                <p><i class="fa-solid fa-radiation"></i> Sábado Extremo (Siguiente Función)</p>
+                <p><i class="fa-solid fa-building"></i> Arena Afición o Dojo Underground</p>
+            </div>
+            <div>
+                <a href="#" class="btn-massive">RESERVAR LUGAR SANGRIENTO</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="roster" class="container" style="background-color: #050505;">
+        <h2 class="section-title">HARDCORE ELITE</h2>
+        <div class="roster-grid">
+            <div class="card">
+                <img src="https://placehold.co/400x600/101010/a10000?text=Foto+Extrema+1&font=Roboto Condensed" alt="Estrella Hardcore">
+                <div class="card-content">
+                    <h3>EL TACHUELAS</h3>
+                    <p class="extremo">BANDO ULTRAVIOLENTO</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/400x600/101010/a10000?text=Foto+Extrema+2&font=Roboto Condensed" alt="Estrella Hardcore">
+                <div class="card-content">
+                    <h3>RAYO CÓSMICO</h3>
+                    <p class="extremo">BANDO ULTRAVIOLENTO</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://placehold.co/400x600/101010/a10000?text=Foto+Extrema+3&font=Roboto Condensed" alt="Estrella Hardcore">
+                <div class="card-content">
+                    <h3>EL PESTILENCIA</h3>
+                    <p class="extremo">BANDO ULTRAVIOLENTO</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tienda" class="container">
+        <h2 class="section-title">PONTE LA MÁSCARA SUCIA</h2>
+        <div class="tienda-grid">
+            <div class="product">
+                <img src="https://placehold.co/400x400/1a1a1a/a10000?text=Mascara+DTU&font=Roboto Condensed" alt="Máscara">
+                <h3>Máscara Profesional Stencil</h3>
+                <p class="price">$1,400.00 MXN</p>
+                <button class="btn-cart"><i class="fa-solid fa-fire"></i> AÑADIR AL DESASTRE</button>
+            </div>
+            <div class="product">
+                <img src="https://placehold.co/400x400/1a1a1a/a10000?text=Jersey+Hardcore&font=Roboto Condensed" alt="Jersey">
+                <h3>Jersey DTU Oficial 2024</h3>
+                <p class="price">$650.00 MXN</p>
+                <button class="btn-cart"><i class="fa-solid fa-fire"></i> AÑADIR AL DESASTRE</button>
+            </div>
+            <div class="product">
+                <img src="https://placehold.co/400x400/1a1a1a/a10000?text=Cachivache&font=Roboto Condensed" alt="Cachivache">
+                <h3>Cachivache de Lámpara Autografiado</h3>
+                <p class="price">$350.00 MXN</p>
+                <button class="btn-cart"><i class="fa-solid fa-fire"></i> AÑADIR AL DESASTRE</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo" style="font-size: 28px;">DTU</div>
+        <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <p style="font-size: 14px; color: #888; margin-top: 20px;">&copy; 2024 DTU. Desarrollado por [Tu Nombre]</p>
+    </footer>
+
+</body>
+</html>
