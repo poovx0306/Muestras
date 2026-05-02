@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DTU - Desastre Total Ultraviolento (Propuesta Oficial)</title>
+    <title>DTU - Desastre Total Ultraviolento</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Teko:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -25,6 +25,7 @@
             background-color: var(--dark);
             background-image: url('https://images.unsplash.com/photo-1596700877995-1f9a10123be8?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
+            /* Aquí estaba el error para celulares. Lo dejamos por defecto para compu */
             background-attachment: fixed; 
             background-position: center;
             color: var(--light);
@@ -37,20 +38,33 @@
         a:hover { color: var(--primary); }
 
         @keyframes flicker {
-            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px var(--primary), 0 0 80px var(--primary); }
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px var(--primary), 0 0 80px var(--primary);
+            }
             20%, 22%, 24%, 55% { text-shadow: none; }
         }
 
-        /* HEADER */
         header {
-            background-color: #000; padding: 15px 5%; display: flex; justify-content: space-between;
-            align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000;
-            border-bottom: 4px solid #000; box-shadow: 0 5px 20px rgba(161, 0, 0, 0.4); flex-wrap: wrap;
+            background-color: #000;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid #000;
+            box-shadow: 0 5px 20px rgba(161, 0, 0, 0.4);
+            flex-wrap: wrap;
         }
+
         .logo { font-family: 'Teko', sans-serif; font-size: 32px; font-weight: 700; color: var(--primary); letter-spacing: 2px; animation: flicker 4s infinite; }
         .logo span { color: #fff; font-size: 16px; vertical-align: middle; letter-spacing: 1px; }
+
         nav ul { list-style: none; display: flex; gap: 20px; }
         nav ul li a { font-weight: bold; font-size: 15px; letter-spacing: 1px; }
+
         .btn-header {
             background-color: #000; color: var(--primary-bright); padding: 8px 15px; font-family: 'Teko', sans-serif;
             font-size: 16px; border-radius: 0; font-weight: 700; border: 2px solid var(--primary-bright); cursor: pointer;
@@ -58,76 +72,34 @@
         }
         .btn-header:hover { background-color: var(--primary-bright); color: #000; text-shadow: none; }
 
-        /* HERO & GENERAL SECTIONS */
         .hero {
             min-height: 100vh;
             background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1)), url('https://images.unsplash.com/photo-1541336032412-2048a678540d?q=80&w=1920&auto=format&fit=crop'); 
             background-size: cover; background-position: center; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center; padding: 100px 20px 40px 20px;
         }
+
         .hero h1 { font-size: 5.5rem; color: #fff; text-shadow: 0 0 15px var(--primary-bright); margin-bottom: 10px; line-height: 0.9; word-wrap: break-word; }
         .hero p { font-size: 1.6rem; margin-bottom: 40px; max-width: 700px; font-weight: bold; color: #ccc; }
+
         .btn-main {
             background-color: #000; border: 4px solid var(--primary); color: var(--primary); padding: 15px 40px;
             font-family: 'Teko', sans-serif; font-size: 24px; cursor: pointer; transition: all 0.3s ease;
             text-shadow: 0 0 5px var(--primary); box-shadow: 0 0 15px var(--primary); width: 100%; max-width: 350px;
         }
         .btn-main:hover { background-color: var(--primary); color: #fff; box-shadow: 0 0 30px var(--primary); text-shadow: none; }
-        .section-title { font-size: 3.5rem; margin-bottom: 50px; color: #fff; border-bottom: 6px double var(--gray); display: inline-block; padding-bottom: 10px; text-shadow: 2px 2px 5px rgba(0,0,0,0.8); line-height: 1; text-align: center; width: 100%;}
+
+        .section-title { font-size: 3.5rem; margin-bottom: 50px; color: #fff; border-bottom: 6px double var(--gray); display: inline-block; padding-bottom: 10px; text-shadow: 2px 2px 5px rgba(0,0,0,0.8); line-height: 1; }
         .container { padding: 80px 5%; text-align: center; }
 
-        /* CARTELERA */
         .cartelera-box { background-color: var(--glass); border: 3px solid #000; border-top: 10px solid var(--primary); padding: 50px 30px; display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: 0 auto; text-align: left; box-shadow: 10px 10px 0 rgba(0,0,0,0.6); gap: 30px; }
         .cartelera-info h3 { font-size: 3rem; color: #fff; line-height: 1; margin-bottom: 10px; }
         .cartelera-info p { font-size: 1.2rem; color: #aaa; margin-top: 15px; }
         .cartelera-info i { color: var(--primary-bright); margin-right: 10px; }
+
         .btn-massive { display: inline-block; background-color: #000; color: var(--primary-bright); border: 3px solid var(--primary-bright); padding: 20px 40px; font-family: 'Teko', sans-serif; font-size: 26px; font-weight: 700; text-shadow: 0 0 5px #000; box-shadow: 0 0 10px var(--primary-bright); text-align: center; transition: all 0.3s ease; }
         .btn-massive:hover { background-color: var(--primary-bright); color: #000; text-shadow: none; }
 
-        /* TAQUILLA INTERACTIVA (CSS AÑADIDO) */
-        .taquilla-layout { display: grid; grid-template-columns: 1fr 350px; gap: 30px; align-items: start; text-align: left; margin-top: 40px; }
-        .arena-wrapper { background-color: #0a0a0a; border: 3px solid #333; border-radius: 8px; padding: 20px; overflow-x: auto; box-shadow: inset 0 0 50px rgba(0,0,0,0.8); }
-        .arena-map { min-width: 800px; height: 650px; position: relative; margin: 0 auto; background-image: radial-gradient(#222 1px, transparent 1px); background-size: 20px 20px; }
-        
-        .ring { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 220px; height: 220px; background-color: #000; border: 5px solid #fff; box-shadow: 0 0 30px var(--primary); display: flex; justify-content: center; align-items: center; z-index: 10; }
-        .ring-poster { width: 90%; height: 90%; background: url('https://placehold.co/400x400/1a1a1a/a10000?text=DTU+RING&font=Roboto Condensed') center/cover; border: 2px solid #444; }
-        
-        .seat-block { position: absolute; display: flex; flex-direction: column; gap: 5px; }
-        .seat-row { display: flex; gap: 5px; justify-content: center; }
-        .block-top { top: 20px; left: 50%; transform: translateX(-50%); }
-        .block-bottom { bottom: 20px; left: 50%; transform: translateX(-50%); }
-        .block-left { top: 50%; left: 40px; transform: translateY(-50%) rotate(-90deg); }
-        .block-right { top: 50%; right: 40px; transform: translateY(-50%) rotate(90deg); }
-
-        .seat { width: 20px; height: 20px; border-radius: 4px; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); transition: 0.2s; }
-        .seat:hover { transform: scale(1.3); z-index: 100; border-color: #fff; }
-        .fila-1 { background-color: #00ff00; } /* Verde */
-        .fila-2 { background-color: #ff0000; } /* Rojo */
-        .fila-3 { background-color: #0000ff; } /* Azul */
-        .fila-4 { background-color: #ffff00; } /* Amarillo */
-        .gral { background-color: #dddddd; }   /* Gris */
-        .seat.selected { background-color: #fff !important; box-shadow: 0 0 15px #fff; border: 2px solid #000; }
-        .seat.occupied { opacity: 0.2; cursor: not-allowed; }
-
-        .checkout-panel { background-color: var(--glass); border: 3px solid var(--primary); padding: 25px; position: sticky; top: 90px; }
-        .checkout-panel h3 { font-size: 28px; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 10px; color: #fff; }
-        .leyenda { margin-bottom: 20px; font-size: 14px; }
-        .leyenda-item { display: flex; align-items: center; gap: 10px; margin-bottom: 5px; }
-        .color-box { width: 15px; height: 15px; border-radius: 3px; }
-        .ticket-list { list-style: none; margin: 20px 0; min-height: 50px; font-size: 15px; color: #aaa; }
-        .ticket-item { display: flex; justify-content: space-between; margin-bottom: 5px; color: #fff; }
-        .total-box { font-family: 'Teko'; font-size: 45px; color: var(--primary-bright); text-align: right; border-top: 2px dashed #444; margin-top: 20px; padding-top: 10px; line-height: 1; }
-        
-        .btn-comprar { width: 100%; background-color: var(--primary); color: #fff; border: none; padding: 15px; font-family: 'Teko'; font-size: 26px; cursor: pointer; margin-top: 20px; transition: 0.3s; }
-        .btn-comprar:hover { background-color: var(--primary-bright); letter-spacing: 2px; }
-
-        /* MODAL QR */
-        #qrModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; justify-content: center; align-items: center; }
-        .modal-content { background: #111; padding: 40px; text-align: center; border: 3px solid #00ff00; width: 90%; max-width: 400px; }
-        .modal-content h2 { color: #00ff00; font-size: 40px; margin-bottom: 10px; font-family: 'Teko'; }
-        .modal-content img { width: 200px; height: 200px; margin: 20px 0; background: #fff; padding: 10px; }
-
-        /* ROSTER & TIENDA */
         .roster-grid, .tienda-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; }
         .card, .product { background-color: var(--glass); border: 3px solid #000; box-shadow: 8px 8px 0 rgba(0,0,0,0.4); }
         .card img { width: 100%; height: 350px; object-fit: cover; filter: grayscale(100%) contrast(140%); transition: all 0.4s; }
@@ -135,38 +107,44 @@
         .card-content { padding: 20px; border-top: 3px solid var(--gray); background-color: rgba(10, 10, 10, 0.8); }
         .card-content h3 { font-size: 2.2rem; color: #fff; line-height: 1; }
         .extremo { color: var(--primary-bright); font-weight: bold; font-size: 1.1rem; }
+
         .product { background-color: var(--gray); padding: 30px 20px; text-align: center; }
         .product img { width: 100%; height: 280px; object-fit: cover; border: 4px solid #000; margin-bottom: 20px; }
         .product h3 { font-size: 1.8rem; color: #fff; line-height: 1.1; }
         .price { font-size: 2rem; font-weight: bold; color: var(--accent); margin: 15px 0; }
-        .btn-cart { width: 100%; background-color: #000; color: var(--accent); border: 3px solid var(--accent); padding: 12px; font-family: 'Teko', sans-serif; font-size: 1.3rem; cursor: pointer; transition: 0.3s; }
-        .btn-cart:hover { background: var(--accent); color: #000; }
+        .btn-cart { width: 100%; background-color: #000; color: var(--accent); border: 3px solid var(--accent); padding: 12px; font-family: 'Teko', sans-serif; font-size: 1.3rem; cursor: pointer; }
 
         footer { background-color: #000; padding: 50px 5%; text-align: center; border-top: 8px solid var(--gray); }
         .social-icons a { font-size: 28px; margin: 0 15px; color: #444; transition: 0.3s; }
         .social-icons a:hover { color: #fff; text-shadow: 0 0 10px var(--primary-bright); }
 
-        /* MOBILE FIRST */
-        @media (max-width: 900px) {
-            .taquilla-layout { grid-template-columns: 1fr; }
-            .checkout-panel { position: static; }
-        }
+        /* =========================================================
+           MEDIA QUERIES - CELULARES (MOBILE FIRST)
+           ========================================================= */
         @media (max-width: 768px) {
-            body { background-attachment: scroll !important; }
+            /* ¡ESTA ES LA SOLUCIÓN AL FONDO NEGRO! */
+            body { 
+                background-attachment: scroll !important; 
+            }
+
             header { padding: 10px 15px; }
             .logo { font-size: 24px; }
             .logo span { font-size: 12px; display: block; }
             nav ul { display: none; }
             .btn-header { font-size: 14px; padding: 6px 12px; }
+
             .hero { padding-top: 120px; min-height: 80vh; }
             .hero h1 { font-size: 3.5rem; }
             .hero p { font-size: 1.2rem; margin-bottom: 30px; padding: 0 10px; }
             .btn-main { font-size: 20px; padding: 12px 20px; }
+
             .section-title { font-size: 2.6rem; margin-bottom: 40px; }
             .container { padding: 60px 15px; }
+
             .cartelera-box { flex-direction: column; text-align: center; padding: 30px 15px; }
             .cartelera-info h3 { font-size: 2.4rem; }
             .btn-massive { font-size: 20px; padding: 15px 20px; width: 100%; }
+
             .card img { height: 300px; }
             .product { padding: 20px 15px; }
             .product img { height: 220px; }
@@ -185,7 +163,7 @@
                 <li><a href="#tienda">TIENDA SUCIA</a></li>
             </ul>
         </nav>
-        <a href="#taquilla-interactiva" class="btn-header"><i class="fa-solid fa-fire"></i> TAQUILLA</a>
+        <a href="#cartelera" class="btn-header"><i class="fa-solid fa-fire"></i> TAQUILLA</a>
     </header>
 
     <section id="inicio" class="hero">
@@ -205,53 +183,8 @@
                 <p><i class="fa-solid fa-building"></i> Arena Afición o Dojo Underground</p>
             </div>
             <div>
-                <a href="#taquilla-interactiva" class="btn-massive">RESERVAR LUGAR SANGRIENTO</a>
+                <a href="#" class="btn-massive">RESERVAR LUGAR SANGRIENTO</a>
             </div>
-        </div>
-    </section>
-
-    <section id="taquilla-interactiva" class="container" style="background-color: rgba(0,0,0,0.8); border-top: 4px solid var(--primary); border-bottom: 4px solid var(--primary);">
-        <h2 class="section-title">ELIGE TU ZONA DE DESASTRE</h2>
-        <div class="taquilla-layout">
-            
-            <div class="arena-wrapper">
-                <div class="arena-map">
-                    <div class="ring"><div class="ring-poster"></div></div>
-                    <div id="block-top" class="seat-block block-top"></div>
-                    <div id="block-bottom" class="seat-block block-bottom"></div>
-                    <div id="block-left" class="seat-block block-left"></div>
-                    <div id="block-right" class="seat-block block-right"></div>
-                </div>
-                <p style="text-align: center; color: #aaa; margin-top: 15px; font-size: 14px;">
-                    <i class="fa-solid fa-hand-pointer"></i> Toca los asientos para seleccionarlos. (Desliza si estás en celular)
-                </p>
-            </div>
-
-            <div class="checkout-panel">
-                <h3>TU COMPRA</h3>
-                <div class="leyenda">
-                    <div class="leyenda-item"><div class="color-box" style="background: #00ff00;"></div> Primera Fila - $850</div>
-                    <div class="leyenda-item"><div class="color-box" style="background: #ff0000;"></div> Segunda Fila - $650</div>
-                    <div class="leyenda-item"><div class="color-box" style="background: #0000ff;"></div> Tercera Fila - $450</div>
-                    <div class="leyenda-item"><div class="color-box" style="background: #ffff00;"></div> Cuarta Fila - $350</div>
-                    <div class="leyenda-item"><div class="color-box" style="background: #dddddd;"></div> General - $250</div>
-                </div>
-
-                <ul class="ticket-list" id="ticket-list">
-                    <li>Aún no has seleccionado lugares.</li>
-                </ul>
-
-                <div class="total-box" id="total-price">$0</div>
-                
-                <button class="btn-comprar" onclick="procesarCompra()">
-                    <i class="fa-solid fa-qrcode"></i> GENERAR BOLETOS
-                </button>
-                <div style="text-align: center; margin-top: 10px; font-size: 24px; color: #888;">
-                    <i class="fa-brands fa-cc-visa"></i> <i class="fa-brands fa-cc-mastercard"></i>
-                    <span style="font-family: Arial; font-weight: bold; font-size: 16px; margin-left: 5px; vertical-align: middle;">OXXO</span>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -316,89 +249,5 @@
         <p style="font-size: 14px; color: #888; margin-top: 20px;">&copy; 2024 DTU. Desarrollado por [Tu Nombre]</p>
     </footer>
 
-    <div id="qrModal">
-        <div class="modal-content">
-            <h2>¡ACCESO CONFIRMADO!</h2>
-            <p style="color: #ccc; font-family: 'Roboto Condensed';">Tu pago ha sido procesado. Presenta este código en la entrada el día del evento.</p>
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=DTU-ACCESO-VIP-2024" alt="Código QR de Acceso">
-            <button class="btn-cart" style="margin-top: 15px;" onclick="document.getElementById('qrModal').style.display='none'">CERRAR</button>
-        </div>
-    </div>
-
-    <script>
-        const zonas = [
-            { clase: 'fila-1', precio: 850, nombre: '1ra Fila' },
-            { clase: 'fila-2', precio: 650, nombre: '2da Fila' },
-            { clase: 'fila-3', precio: 450, nombre: '3ra Fila' },
-            { clase: 'fila-4', precio: 350, nombre: '4ta Fila' },
-            { clase: 'gral', precio: 250, nombre: 'General' }
-        ];
-
-        function generarBloque(idBloque, filasArray, numAsientos) {
-            const bloque = document.getElementById(idBloque);
-            filasArray.forEach(zona => {
-                const filaDiv = document.createElement('div');
-                filaDiv.className = 'seat-row';
-                for(let i=0; i<numAsientos; i++) {
-                    const asiento = document.createElement('div');
-                    asiento.className = `seat ${zona.clase}`;
-                    asiento.dataset.precio = zona.precio;
-                    asiento.dataset.nombre = zona.nombre;
-                    if(Math.random() < 0.15) {
-                        asiento.classList.add('occupied');
-                    } else {
-                        asiento.onclick = () => toggleAsiento(asiento);
-                    }
-                    filaDiv.appendChild(asiento);
-                }
-                bloque.appendChild(filaDiv);
-            });
-        }
-
-        generarBloque('block-top', [zonas[3], zonas[2], zonas[1], zonas[0]], 15);
-        generarBloque('block-bottom', [zonas[0], zonas[1], zonas[2], zonas[3]], 15);
-        generarBloque('block-left', [zonas[4], zonas[4], zonas[3], zonas[2], zonas[1], zonas[0]], 12);
-        generarBloque('block-right', [zonas[0], zonas[1], zonas[2], zonas[3], zonas[4], zonas[4]], 12);
-
-        function toggleAsiento(elemento) {
-            if(elemento.classList.contains('occupied')) return;
-            elemento.classList.toggle('selected');
-            actualizarCarrito();
-        }
-
-        function actualizarCarrito() {
-            const seleccionados = document.querySelectorAll('.seat.selected');
-            const listaHTML = document.getElementById('ticket-list');
-            const totalHTML = document.getElementById('total-price');
-            let total = 0;
-            listaHTML.innerHTML = ''; 
-            
-            if(seleccionados.length === 0) {
-                listaHTML.innerHTML = '<li>Aún no has seleccionado lugares.</li>';
-                totalHTML.innerText = '$0';
-                return;
-            }
-
-            seleccionados.forEach(asiento => {
-                const precio = parseInt(asiento.dataset.precio);
-                const nombre = asiento.dataset.nombre;
-                total += precio;
-                const li = document.createElement('li');
-                li.className = 'ticket-item';
-                li.innerHTML = `<span style="font-family: 'Roboto Condensed';">1x Boleto (${nombre})</span> <span style="font-family: 'Teko'; font-size: 20px;">$${precio}</span>`;
-                listaHTML.appendChild(li);
-            });
-            totalHTML.innerText = `$${total} MXN`;
-        }
-
-        function procesarCompra() {
-            const seleccionados = document.querySelectorAll('.seat.selected');
-            if(seleccionados.length === 0) {
-                alert("Selecciona al menos un asiento en el mapa para continuar.");
-                return;
-            }
-            document.getElementById('qrModal').style.display = 'flex';
-        }
-    </script>
 </body>
 </html>
